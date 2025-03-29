@@ -9,7 +9,7 @@ import (
 
 func main() {
 	config.SetUpEnvVariables()
-	db.InitDB()
+	db.ConnectToDB()
 	rest_client_adapter.RestRouter()
 	fmt.Println("Welcome to this application on")
 }
