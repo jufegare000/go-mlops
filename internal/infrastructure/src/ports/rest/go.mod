@@ -2,7 +2,13 @@ module ports
 
 go 1.24
 
-require github.com/gin-gonic/gin v1.10.0
+require (
+	github.com/gin-gonic/gin v1.10.0
+	github.com/go-sql-driver/mysql v1.9.1
+	github.com/joho/godotenv v1.5.1
+)
+
+require filippo.io/edwards25519 v1.1.0 // indirect
 
 require (
 	github.com/bytedance/sonic v1.11.6 // indirect
@@ -30,5 +36,5 @@ require (
 	golang.org/x/sys v0.20.0 // indirect
 	golang.org/x/text v0.15.0 // indirect
 	google.golang.org/protobuf v1.34.1 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect; indirect,
 )
