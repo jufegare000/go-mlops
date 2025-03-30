@@ -1,8 +1,10 @@
 package quotes
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+)
 
-func QuotesController(router *gin.Engine) {
+func QuotesControllerImplemented(router *gin.Engine) {
 	router.GET("/quotes", getQuotesList)
 }
 

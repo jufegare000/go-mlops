@@ -11,6 +11,6 @@ func RestRouter() {
 	router := gin.Default()
 	port := os.Getenv("APPLICATION_PORT")
 	HelloWorldRestController(router)
-	quotes.QuotesController(router)
+	quotes.QuotesControllerImplemented(router)
 	_ = router.Run(fmt.Sprintf(":%s", port))
 }

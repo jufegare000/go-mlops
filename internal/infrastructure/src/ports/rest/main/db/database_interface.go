@@ -1,7 +1,10 @@
 package db
 
-import mysqlconf "msyql"
+import (
+	"database/sql"
+	mysqlconf "msyql"
+)
 
-func ConnectToDB() {
-	mysqlconf.InitMySQLDB()
+func ConnectToDB() *sql.DB {
+	return mysqlconf.InitMySQLDB()
 }
