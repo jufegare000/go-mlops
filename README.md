@@ -6,8 +6,18 @@ Este es un proyecto de demostración de arquitectura hexagonal en Go, enfocado e
 
 ## 🧱 Estructura del Proyecto
 ~~~.
+.
+├── bin
+│   └── rest-client
 ├── cmd
-│   └── literary_works_db.sql
+│   ├── rest-client
+│   │   ├── main.go
+│   │   └── Makefile
+│   └── scripts
+│       └── database
+│           ├── literary_works_db.sql
+│           ├── mysql database setup.md
+│           └── README.md
 ├── go.mod
 ├── go.sum
 ├── go.work
@@ -27,24 +37,24 @@ Este es un proyecto de demostración de arquitectura hexagonal en Go, enfocado e
 │       │       └── rest
 │       │           ├── go.mod
 │       │           ├── go.sum
-│       │           └── main
-│       │               ├── config
-│       │               │   └── load_env_variables.go
-│       │               ├── db
-│       │               │   └── database_interface.go
-│       │               ├── main.go
-│       │               └── rest_client_adapter
-│       │                   ├── hello_world_rest_controller.go
-│       │                   ├── quotes
-│       │                   │   └── quotes_controller.go
-│       │                   └── RestRouter.go
+│       │           ├── main
+│       │           │   ├── config
+│       │           │   │   └── load_env_variables.go
+│       │           │   ├── db
+│       │           │   │   └── database_interface.go
+│       │           │   ├── rest_client_adapter
+│       │           │   │   ├── hello_world_rest_controller.go
+│       │           │   │   ├── quotes
+│       │           │   │   │   └── quotes_controller.go
+│       │           │   │   └── RestRouter.go
+│       │           │   └── start_rest_server.go
+│       │           └── test
 │       └── tests
 │           ├── adapters
 │           └── ports
+│               └── hello_test.go
+├── Makefile
 ├── pkg
-│   └── database
-│       ├── mysql database setup.md
-│       └── README.md
 └── README.md
 
 ~~~
