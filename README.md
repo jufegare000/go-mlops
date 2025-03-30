@@ -99,11 +99,10 @@ cd go-mlops
 ```
 go work init ./internal/infrastructure/src/ports/rest ./internal/infrastructure/src/adapters/persistence/mysqlconf
 ```
-3. Ejecutá el cliente REST
-```
-cd internal/infrastructure/src/ports/rest
-go run main
-```
+3. Despliegue
+   Una vez tengas el entorno preparado y los módulos conectados mediante `go.work`, puedes compilar y ejecutar el cliente REST usando el sistema de Makefiles.
+Desde la raíz del proyecto, ejecutá:
+```make application rest```
 ## 🧪 Endpoints disponibles
 Método	Ruta	Descripción
 GET	/hello	Verifica que el servidor responde
