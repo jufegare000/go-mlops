@@ -1,4 +1,4 @@
-package main
+package rest_client_adapter
 
 import (
 	"fmt"
@@ -7,9 +7,9 @@ import (
 	"ports/main/rest_client_adapter"
 )
 
-func main() {
+func StartRestServer() {
+	fmt.Println("Welcome to this application on")
 	config.SetUpEnvVariables()
 	db.ConnectToDB()
 	rest_client_adapter.RestRouter()
-	fmt.Println("Welcome to this application on")
 }
