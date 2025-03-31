@@ -1,0 +1,5 @@
+package out
+
+func GetAllQuotes() {
+	
+}

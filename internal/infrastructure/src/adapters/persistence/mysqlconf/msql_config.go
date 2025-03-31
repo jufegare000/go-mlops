@@ -11,7 +11,7 @@ import (
 
 var DB *sql.DB
 
-func InitMySQLDB() {
+func InitMySQLDB() *sql.DB {
 	user := os.Getenv("MYSQL_USER")
 	pass := os.Getenv("MYSQL_PASSWORD")
 	host := os.Getenv("HOST")
@@ -30,4 +30,5 @@ func InitMySQLDB() {
 	}
 
 	fmt.Println("✅ Connected to MySQL")
+	return DB
 }

@@ -1,7 +1,13 @@
 package main
 
-import restclientadapter "ports/main"
+import (
+	mysqlconf "msyql"
+	rest_client_adapter "ports/main"
+	"ports/main/config"
+)
 
 func main() {
-	restclientadapter.StartRestServer()
+	config.SetUpEnvVariables()
+	mysqlconf.InitMySQLDB()
+	rest_client_adapter.StartRestServer()
 }
