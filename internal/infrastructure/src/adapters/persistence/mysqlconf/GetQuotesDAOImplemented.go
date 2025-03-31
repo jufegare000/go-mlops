@@ -1,8 +1,7 @@
-package implemeted
+package mysqlconf
 
 import (
 	"database/sql"
-	"github.com/jufegare000/go-mlops/internal/infrastructure/src/adapters/persistence/entities/quotes"
 )
 
 type GetQuotesDAOImplemented struct {
@@ -12,17 +11,18 @@ type GetQuotesDAOImplemented struct {
 func NewGetQuotesDAOImplemented(db *sql.DB) *GetQuotesDAOImplemented {
 	return &GetQuotesDAOImplemented{db: db}
 }
-func (dao *GetQuotesDAOImplemented) GetAllQuotes() ([]quotes.QuoteEntity, error) {
-	rows, err := dao.db.Query("SELECT id, literary_work_id, description FROM quotes")
+
+func (dao *GetQuotesDAOImplemented) GetAllQuotes() ([]QuoteEntity, error) {
+	rows, err := dao.db.Query("SELECT id, literary_work_id, description FROM famous_quotes")
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
 
-	var result []quotes.QuoteEntity
+	var result []QuoteEntity
 
 	for rows.Next() {
-		var q quotes.QuoteEntity
+		var q QuoteEntity
 		err := rows.Scan(&q.ID, &q.WorkId, &q.Description)
 		if err != nil {
 			return nil, err

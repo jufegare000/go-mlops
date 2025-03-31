@@ -1,21 +1,24 @@
 package quotes
 
-func NewGetQuotesService(dao GetQuotesDao) GetQuotesService {
-	return &getQuotesServiceImpl{dao: dao}
+import (
+	mysqlconf "msyql"
+)
+
+import "github.com/jinzhu/copier"
+
+func GetAllQuotes() ([]QuoteDTO, error) {
+	quotes, _ := getDAO().GetAllQuotes()
+	parsedList, _ := ConvertQuotes(quotes)
+	return parsedList, nil
 }
 
-type getQuotesServiceImpl struct {
-	dao GetQuotesDao
+func getDAO() *mysqlconf.GetQuotesDAOImplemented {
+	implementation := mysqlconf.NewGetQuotesDAOImplemented(mysqlconf.DB)
+	return implementation
 }
 
-func (g getQuotesServiceImpl) GetAllQuotes() ([]QuoteDTO, error) {
-	quotes := make([]QuoteDTO, 0)
-	quotes = append(quotes, QuoteDTO{1, "Mock", "Blabla"})
-	return quotes, nil
-}
-
-func (g getQuotesServiceImpl) GetQuotesByAuthor(author string) ([]QuoteDTO, error) {
-	quotes := make([]QuoteDTO, 0)
-	quotes = append(quotes, QuoteDTO{1, "Mock", "Blabla"})
-	return quotes, nil
+func ConvertQuotes(dtos []mysqlconf.QuoteEntity) ([]QuoteDTO, error) {
+	var entities []QuoteDTO
+	err := copier.Copy(&entities, &dtos)
+	return entities, err
 }

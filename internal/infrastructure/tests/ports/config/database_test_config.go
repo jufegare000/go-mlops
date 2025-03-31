@@ -13,12 +13,12 @@ func SetupInMemoryDB(t *testing.T) *sql.DB {
 	}
 
 	schema := `
-	CREATE TABLE quotes (
+	CREATE TABLE  famous_quotes (
 		id INTEGER PRIMARY KEY,
 		literary_work_id INTEGER,
 		description TEXT
 	);
-	INSERT INTO quotes (id, literary_work_id, description) VALUES
+	INSERT INTO famous_quotes (id, literary_work_id, description) VALUES
 		(1, 101, 'Quote one'),
 		(2, 102, 'Quote two');
 	`

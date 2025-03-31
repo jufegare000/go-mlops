@@ -1,13 +1,13 @@
 package main
 
 import (
-	"github.com/jufegare000/go-mlops/internal/infrastructure/src/adapters/bootstrap/rest"
-	restclientadapter "ports/main"
+	mysqlconf "msyql"
+	rest_client_adapter "ports/main"
 	"ports/main/config"
 )
 
 func main() {
 	config.SetUpEnvVariables()
-	rest.InitializeAllServices()
-	restclientadapter.StartRestServer()
+	mysqlconf.InitMySQLDB()
+	rest_client_adapter.StartRestServer()
 }

@@ -1,4 +1,4 @@
-package quotes
+package mysqlconf
 
 type QuoteEntity struct {
 	ID          int

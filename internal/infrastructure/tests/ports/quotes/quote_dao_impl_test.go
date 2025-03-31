@@ -1,14 +1,14 @@
 package quotes
 
 import (
-	"github.com/jufegare000/go-mlops/internal/infrastructure/src/adapters/persistence/implemeted"
 	"github.com/jufegare000/go-mlops/internal/infrastructure/tests/ports/config"
+	mysqlconf "msyql"
 	"testing"
 )
 
 func TestGetQuotesDAO_FindAll(t *testing.T) {
 	db := config.SetupInMemoryDB(t)
-	dao := implemeted.NewGetQuotesDAOImplemented(db)
+	dao := mysqlconf.NewGetQuotesDAOImplemented(db)
 
 	quotes, err := dao.GetAllQuotes()
 	if err != nil {
